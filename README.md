@@ -1,17 +1,12 @@
-<<<<<<< HEAD
-# Landin
-Landin Page IA para prestar servicios relacionados con IA 
-Despliegue
+# Landin - Sistema Web IA
+
+Landin Page IA para prestar servicios relacionados con IA.
+
+## 🚀 Despliegue
 
 Esta aplicación está desplegada usando [Railway](https://railway.app), una plataforma de infraestructura moderna y sencilla.
 
 Puedes ver el proyecto en vivo aquí: [https://mi-app.up.railway.app](https://mi-app.up.railway.app)
-=======
-# Landin - Sistema Web IA
-
-Proyecto Django con aplicaciones de inteligencia artificial para marketing y asistencia virtual.
-
-## 🚀 Despliegue en Railway
 
 ### Requisitos Previos
 - Cuenta en [Railway](https://railway.app)
@@ -83,9 +78,3 @@ Landin/
 
 ### Contacto
 Para soporte técnico, revisa los logs de Railway o contacta al equipo de desarrollo.
-
-# Proyecto Landin
-
-Este es un resumen del proyecto...
-(Nueva información combinada)
->>>>>>> c7e120c ( cambios realizados para futuras implementaciones)

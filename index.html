@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaoSystemWebIA - Soluciones Inteligentes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <!-- Logo SVG -->
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <!-- Texto del Logo -->
+                <div class="flex items-baseline">
+                    <span class="text-2xl font-bold text-gray-800">Mao</span>
+                    <span class="text-2xl font-bold text-blue-600">System</span>
+                    <span class="text-2xl font-bold text-gray-800">WebIA</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors">Servicios</a></li>
+                    <li><a href="#tienda" class="text-gray-600 hover:text-blue-600 transition-colors">Tienda IA</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="services" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nuestros Servicios</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-robot text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Asistentes Virtuales con IA</h3>
+                        <p class="text-gray-600 text-center">Chatbots para atención, soporte y ventas. Recomendaciones personalizadas para usuarios o clientes.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Marketing Inteligente</h3>
+                        <p class="text-gray-600 text-center">Campañas automáticas basadas en comportamiento del usuario. Segmentación avanzada y análisis de conversión.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nueva sección de Tienda Online con IA -->
+        <section id="tienda" class="py-20 bg-gradient-to-b from-blue-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">🚀 Tu Tienda Online con IA</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">No es solo una tienda: Es un ecosistema autónomo con inteligencia artificial que crece contigo.</p>
+                </div>
+
+                <!-- Botón destacado -->
+                <div class="text-center mb-16">
+                    <a href="#contact" class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white font-bold py-6 px-12 rounded-2xl text-2xl shadow-2xl hover:from-green-700 hover:to-green-600 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                        <i class="fas fa-shopping-cart mr-3"></i>
+                        ¡Quiero mi tienda por $100 USD!
+                    </a>
+                </div>
+
+                <!-- Características principales -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-mobile-alt text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">100% Responsivo</h3>
+                        <p class="text-gray-600">Adaptable perfectamente a móviles, tablets y computadoras.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-tags text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Categorías Ilimitadas</h3>
+                        <p class="text-gray-600">Organiza tus productos con categorías y subcategorías sin límites.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-images text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Catálogo Completo</h3>
+                        <p class="text-gray-600">Imágenes, precios, descripciones y todo lo que necesitas para vender.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fab fa-whatsapp text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">WhatsApp Business</h3>
+                        <p class="text-gray-600">Carrito de compras integrado con pedidos automáticos por WhatsApp.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-cogs text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Panel Sencillo</h3>
+                        <p class="text-gray-600">Administración fácil sin necesidad de conocimientos técnicos.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-headset text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Soporte Incluido</h3>
+                        <p class="text-gray-600">Guías PDF + 2 horas de capacitación por Zoom + hosting 1 año gratis.</p>
+                    </div>
+                </div>
+
+                <!-- Servicios Premium IA -->
+                <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-16">
+                    <h3 class="text-3xl font-bold text-white text-center mb-8">✨ Potencia tu Tienda con IA</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-chart-bar text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">SmartReport AI</h4>
+                            <p class="text-white/80 text-sm mb-3">Reportes automáticos de ventas y tendencias</p>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">+$20/mes</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-comments text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">ChatDoc AI</h4>
+                            <p class="text-white/80 text-sm mb-3">Chatbot interno para dudas de administración</p>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">+$15/mes</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">AutoTest AI</h4>
+                            <p class="text-white/80 text-sm mb-3">Tests unitarios para integraciones personalizadas</p>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">+$25/mes</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-sticky-note text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Notion Assistant</h4>
+                            <p class="text-white/80 text-sm mb-3">Resúmenes automáticos de reuniones y pedidos</p>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm">+$10/mes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonios -->
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Ana, Boutique Online</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"¡En 2 días ya vendía! El reporte de IA me ayudó a subir ventas un 30%. El panel es súper fácil de usar."</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Carlos, Tienda de Tecnología</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"La integración con WhatsApp es genial. Los clientes pueden hacer pedidos directamente desde mi catálogo."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contacto</h2>
+                <div class="max-w-2xl mx-auto">
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 MaoSystemWebIA. Todos los derechos reservados.</p>
+            <p class="mt-2 text-gray-400">Soluciones inteligentes para tu negocio digital</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Formulario de contacto (ejemplo básico)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+        });
+    </script>
+</body>
+</html> 
