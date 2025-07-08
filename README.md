@@ -2,8 +2,7 @@
 
 ![Django](https://img.shields.io/badge/Django-5.2.1-green.svg)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supported-blue.svg)
-![Railway](https://img.shields.io/badge/Deploy-Railway-orange.svg)
+![SQLite](https://img.shields.io/badge/SQLite-Supported-blue.svg)
 
 Un sistema web completo desarrollado en Django que ofrece servicios relacionados con Inteligencia Artificial, incluyendo marketing digital, cotizaciones y asistente virtual.
 
@@ -14,14 +13,10 @@ Un sistema web completo desarrollado en Django que ofrece servicios relacionados
 - **Marketing con IA**: Herramientas de marketing digital potenciadas por inteligencia artificial
 - **Asistente Virtual**: Chatbot inteligente para atención al cliente
 - **Diseño Responsivo**: Interfaz moderna y adaptable a todos los dispositivos
-- **Base de Datos PostgreSQL**: Configuración optimizada para producción
-- **Despliegue Automático**: Configurado para Railway con Docker
+- **Base de Datos SQLite**: Configuración optimizada para desarrollo local
+- **Despliegue Local**: Configurado para desarrollo y pruebas
 
 ## 🚀 Versiones Disponibles
-
-### 🌐 Versión Dinámica (Django)
-- **URL**: [https://maosystemwebia-production.up.railway.app](https://maosystemwebia-production.up.railway.app)
-- **Características**: Funcionalidad completa con base de datos, formularios dinámicos y todas las aplicaciones
 
 ### 📄 Versión Estática (GitHub Pages)
 - **URL**: [https://maosystemwebia.github.io/Landin](https://maosystemwebia.github.io/Landin)
@@ -32,8 +27,7 @@ Un sistema web completo desarrollado en Django que ofrece servicios relacionados
 ### Backend
 - **Django 5.2.1**: Framework web principal
 - **Python 3.8+**: Lenguaje de programación
-- **PostgreSQL**: Base de datos de producción
-- **SQLite**: Base de datos de desarrollo
+- **SQLite**: Base de datos principal
 
 ### Frontend
 - **HTML5/CSS3**: Estructura y estilos
@@ -41,10 +35,9 @@ Un sistema web completo desarrollado en Django que ofrece servicios relacionados
 - **Bootstrap**: Framework CSS responsivo
 
 ### Despliegue
-- **Railway**: Plataforma de hosting principal
-- **Docker**: Contenedorización
-- **Waitress**: Servidor WSGI de producción
 - **GitHub Pages**: Hosting estático
+- **Docker**: Contenedorización (opcional)
+- **Waitress**: Servidor WSGI de producción (local)
 
 ## 📁 Estructura del Proyecto
 
@@ -66,12 +59,9 @@ MaoSystemWebIA/
 ├── static/                  # Archivos estáticos (CSS, JS, imágenes)
 ├── templates/               # Plantillas HTML
 ├── staticfiles/             # Archivos estáticos recolectados
-├── Dockerfile               # Configuración Docker
-├── railway.json             # Configuración Railway
 ├── requirements.txt         # Dependencias de Python
 ├── requirements_prod.txt    # Dependencias de producción
-├── Procfile                 # Configuración para Heroku
-├── run_waitress.py          # Servidor de producción
+├── run_waitress.py          # Servidor de producción (local)
 ├── setup_prod.sh           # Script de configuración Linux
 ├── setup_prod.bat          # Script de configuración Windows
 └── index.html              # Versión estática para GitHub Pages
@@ -140,53 +130,19 @@ MaoSystemWebIA/
    - URL principal: http://127.0.0.1:8000/
    - Admin: http://127.0.0.1:8000/admin/
 
-## 🌐 Despliegue en Railway
 
-### Configuración Automática
 
-1. **Conectar con GitHub**
-   - Ve a [Railway Dashboard](https://railway.app)
-   - Crea nuevo proyecto
-   - Selecciona "Deploy from GitHub repo"
-   - Conecta tu repositorio `maosystemwebia/Landin`
-
-2. **Variables de Entorno Requeridas**
-   ```
-   SECRET_KEY=tu_clave_secreta_muy_larga_y_compleja
-   DEBUG=False
-   ALLOWED_HOSTS=localhost,127.0.0.1,.railway.app
-   ```
-
-3. **Base de Datos PostgreSQL**
-   - Railway configurará automáticamente `DATABASE_URL`
-   - Las migraciones se ejecutarán automáticamente
-
-### Configuración Manual
-
-Si prefieres configuración manual:
-
-1. **Crear servicio de base de datos**
-   - New Service → Database → PostgreSQL
-
-2. **Configurar variables de entorno**
-   - Ve a la pestaña "Variables"
-   - Agrega todas las variables requeridas
-
-3. **Desplegar**
-   - Railway detectará el Dockerfile automáticamente
-   - El build comenzará automáticamente
-
-## 🔧 Configuración de Producción
+## 🔧 Configuración de Producción Local
 
 ### Variables de Entorno de Producción
 ```bash
 SECRET_KEY=clave_secreta_muy_larga_y_compleja
 DEBUG=False
-ALLOWED_HOSTS=tu-dominio.railway.app,localhost,127.0.0.1
-DATABASE_URL=postgresql://usuario:password@host:puerto/database
+ALLOWED_HOSTS=localhost,127.0.0.1
+DATABASE_URL=sqlite:///db.sqlite3
 ```
 
-### Comandos de Producción
+### Comandos de Producción Local
 ```bash
 # Recolectar archivos estáticos
 python manage.py collectstatic --noinput
@@ -194,7 +150,7 @@ python manage.py collectstatic --noinput
 # Ejecutar migraciones
 python manage.py migrate
 
-# Ejecutar servidor de producción
+# Ejecutar servidor de producción local
 python run_waitress.py
 ```
 
@@ -226,19 +182,7 @@ python run_waitress.py
 
 ## 🐛 Solución de Problemas
 
-### Error: "Se produjo un error al implementar desde la fuente"
 
-1. **Revisar Logs de Railway**
-   - Ve a Railway → Tu proyecto → Deployments
-   - Revisa los logs del último deployment
-
-2. **Verificar Variables de Entorno**
-   - Confirma que todas las variables estén configuradas
-   - Verifica que `SECRET_KEY` sea válida
-
-3. **Verificar Base de Datos**
-   - Confirma que PostgreSQL esté configurado
-   - Verifica que `DATABASE_URL` sea correcta
 
 ### Error: "ModuleNotFoundError"
 
@@ -275,11 +219,6 @@ python run_waitress.py
 
 ## 📊 Monitoreo y Logs
 
-### Railway Logs
-- Accede a Railway Dashboard
-- Ve a tu proyecto → Deployments
-- Revisa logs en tiempo real
-
 ### Django Logs
 ```bash
 # Ver logs de Django
@@ -301,14 +240,11 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 📞 Contacto
 
 - **Proyecto**: [MaoSystemWebIA](https://github.com/maosystemwebia/Landin)
-- **Versión Dinámica**: [https://maosystemwebia-production.up.railway.app](https://maosystemwebia-production.up.railway.app)
 - **Versión Estática**: [https://maosystemwebia.github.io/Landin](https://maosystemwebia.github.io/Landin)
 
 ## 🙏 Agradecimientos
 
 - Django Framework
-- Railway Platform
-- PostgreSQL Database
 - Bootstrap CSS Framework
 - Python Community
 
