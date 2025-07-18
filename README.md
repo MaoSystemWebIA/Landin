@@ -1,4 +1,4 @@
-# MaoSystemWebIA - Sistema Web con Inteligencia Artificial
+# MaoSystemWebIA - Sistema Web 
 
 ![Django](https://img.shields.io/badge/Django-5.2.1-green.svg)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
