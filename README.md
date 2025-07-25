@@ -1,4 +1,4 @@
-# MaoSystemWebIA - Sistema Web con Inteligencia Artificial
+# MaoSystemWebIA - Sistema Web 
 
 ![Django](https://img.shields.io/badge/Django-5.2.1-green.svg)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
@@ -6,7 +6,7 @@
 
 Un sistema web completo desarrollado en Django que ofrece servicios relacionados con Inteligencia Artificial, incluyendo marketing digital, cotizaciones y asistente virtual.
 
-## 🌟 Características Principales
+## Características Principales
 
 - **Landing Page Dinámica**: Página de inicio con formulario de contacto integrado
 - **Sistema de Cotizaciones**: Generación automática de cotizaciones para servicios de IA
@@ -16,13 +16,13 @@ Un sistema web completo desarrollado en Django que ofrece servicios relacionados
 - **Base de Datos SQLite**: Configuración optimizada para desarrollo local
 - **Despliegue Local**: Configurado para desarrollo y pruebas
 
-## 🚀 Versiones Disponibles
+##  Versiones Disponibles
 
-### 📄 Versión Estática (GitHub Pages)
+###  Versión Estática (GitHub Pages)
 - **URL**: [https://maosystemwebia.github.io/Landin](https://maosystemwebia.github.io/Landin)
 - **Características**: Landing page estática para demostración rápida
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 ### Backend
 - **Django 5.2.1**: Framework web principal
@@ -39,7 +39,7 @@ Un sistema web completo desarrollado en Django que ofrece servicios relacionados
 - **Docker**: Contenedorización (opcional)
 - **Waitress**: Servidor WSGI de producción (local)
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 MaoSystemWebIA/
@@ -67,7 +67,7 @@ MaoSystemWebIA/
 └── index.html              # Versión estática para GitHub Pages
 ```
 
-## 🚀 Instalación Local
+##  Instalación Local
 
 ### Prerrequisitos
 - Python 3.8 o superior
@@ -132,7 +132,7 @@ MaoSystemWebIA/
 
 
 
-## 🔧 Configuración de Producción Local
+##  Configuración de Producción Local
 
 ### Variables de Entorno de Producción
 ```bash
@@ -154,7 +154,7 @@ python manage.py migrate
 python run_waitress.py
 ```
 
-## 📱 Aplicaciones del Sistema
+##  Aplicaciones del Sistema
 
 ### 1. Landing Page (`landing_page`)
 - Página de inicio con diseño moderno
@@ -180,7 +180,7 @@ python run_waitress.py
 - Respuestas contextuales
 - Integración con servicios de IA
 
-## 🐛 Solución de Problemas
+##  Solución de Problemas
 
 
 
@@ -209,7 +209,7 @@ python run_waitress.py
    python manage.py migrate
    ```
 
-## 🔒 Seguridad
+##  Seguridad
 
 - **SECRET_KEY**: Generada automáticamente para producción
 - **DEBUG**: Deshabilitado en producción
@@ -217,7 +217,7 @@ python run_waitress.py
 - **CSRF Protection**: Habilitado por defecto
 - **HTTPS**: Configurado automáticamente en Railway
 
-## 📊 Monitoreo y Logs
+##  Monitoreo y Logs
 
 ### Django Logs
 ```bash
@@ -225,7 +225,7 @@ python run_waitress.py
 python manage.py runserver --verbosity=2
 ```
 
-## 🤝 Contribución
+##  Contribución
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
@@ -233,7 +233,7 @@ python manage.py runserver --verbosity=2
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
@@ -242,7 +242,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 - **Proyecto**: [MaoSystemWebIA](https://github.com/maosystemwebia/Landin)
 - **Versión Estática**: [https://maosystemwebia.github.io/Landin](https://maosystemwebia.github.io/Landin)
 
-## 🙏 Agradecimientos
+##  Agradecimientos
 
 - Django Framework
 - Bootstrap CSS Framework
@@ -250,4 +250,4 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ---
 
-**Desarrollado con ❤️ usando Django y Python**
+**Desarrollado con  usando Django y Python**
