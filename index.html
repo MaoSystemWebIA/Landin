@@ -1,325 +1,1379 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaoSystemWebIA - Soluciones Inteligentes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatizamos tu Crecimiento con Agentes de IA 24/7</title>
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --accent-strong: #0ea5e9;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --shadow-chip: 0 10px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 14px;
+      background: conic-gradient(from 210deg, #22d3ee, #0f172a, #4f46e5, #22d3ee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4), 0 18px 45px rgba(15, 23, 42, 0.95);
+    }
+
+    .logo-mark span {
+      font-weight: 800;
+      font-size: 16px;
+      color: #e5e7eb;
+      letter-spacing: 0.02em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .header-cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.9));
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.95);
+    }
+
+    .header-cta-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .header-cta-pill strong {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px 4px 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.3));
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-kicker-pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.5), #0f172a);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 3.1vw, 3.2rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.03rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 18px;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-chip);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-chip span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: radial-gradient(circle at top left, #22d3ee, #2563eb);
+      color: #0b1120;
+      box-shadow: 0 22px 55px rgba(56, 189, 248, 0.6);
+      transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 30px 80px rgba(8, 47, 73, 0.9);
+      filter: brightness(1.03);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-footnote {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-footnote span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.28);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .dashboard {
+      border-radius: 22px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.28), rgba(15, 23, 42, 0.98));
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      overflow: hidden;
+    }
+
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .dash-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .dash-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .dash-title {
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .dash-body {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .dash-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .metric-card {
+      padding: 10px 10px 9px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.18);
+      color: #bbf7d0;
+    }
+
+    .metric-pill.danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: #fecaca;
+    }
+
+    .dash-activity {
+      padding: 9px 10px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+    }
+
+    .activity-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .activity-badge {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.22);
+      font-size: 10px;
+      color: #e0f2fe;
+    }
+
+    .activity-list {
+      margin-top: 6px;
+      max-height: 86px;
+      overflow: hidden;
+    }
+
+    .activity-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(31, 41, 55, 0.8);
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .activity-label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .activity-time {
+      font-size: 10px;
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .dash-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 10px;
+      color: var(--muted);
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      padding-top: 7px;
+      margin-top: 4px;
+    }
+
+    .dash-footer span strong {
+      color: #e5e7eb;
+    }
+
+    .services {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(148, 163, 184, 0.9);
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 18px;
+    }
+
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tier-card {
+      padding: 16px 16px 14px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), #020617);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .tier-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(148, 163, 184, 0.95);
+      margin-bottom: 6px;
+    }
+
+    .tier-title {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .tier-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.72rem;
+      color: rgba(209, 213, 219, 0.9);
+      margin-bottom: 8px;
+    }
+
+    .tier-pill span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+    }
+
+    .tier-description {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tier-list {
+      list-style: none;
+      margin-bottom: 10px;
+      font-size: 0.86rem;
+      color: rgba(209, 213, 219, 0.96);
+    }
+
+    .tier-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+
+    .tier-list li::before {
+      content: "✓";
+      font-size: 0.8rem;
+      color: #22c55e;
+      margin-top: 1px;
+    }
+
+    .tier-price {
+      font-size: 0.78rem;
+      color: rgba(148, 163, 184, 0.95);
+    }
+
+    .tier-price strong {
+      color: #e5e7eb;
+    }
+
+    .lead-magnet {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 22px;
+      margin-bottom: 40px;
+      align-items: stretch;
+    }
+
+    .lead-card {
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.4), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .lead-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.74rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(209, 213, 219, 0.96);
+    }
+
+    .lead-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #facc15;
+    }
+
+    .lead-title {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .lead-text {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .lead-form {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.8rem;
+    }
+
+    label {
+      color: rgba(209, 213, 219, 0.96);
+    }
+
+    input,
+    textarea {
+      padding: 8px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    textarea {
+      border-radius: 14px;
+      min-height: 68px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(148, 163, 184, 0.8);
+    }
+
+    .lead-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: rgba(15, 23, 42, 0.96);
+    }
+
+    .lead-note {
+      color: #fefce8;
+    }
+
+    .lead-note strong {
+      color: #e5e7eb;
+    }
+
+    .lead-whatsapp {
+      font-weight: 600;
+      color: #ecfeff;
+    }
+
+    .lead-aside {
+      padding: 16px 16px 14px;
+      border-radius: 18px;
+      background: linear-gradient(160deg, rgba(15, 23, 42, 0.96), #020617);
+      border: 1px dashed rgba(148, 163, 184, 0.65);
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .lead-aside h3 {
+      font-size: 1rem;
+      color: #e5e7eb;
+      margin-bottom: 2px;
+    }
+
+    .lead-aside ul {
+      list-style: none;
+    }
+
+    .lead-aside li {
+      margin-bottom: 4px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .lead-aside li::before {
+      content: "▹";
+      color: #38bdf8;
+      font-size: 0.82rem;
+      margin-top: 1px;
+    }
+
+    .tech {
+      margin-bottom: 22px;
+      padding: 16px 16px 14px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), #020617);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .tech-block h3 {
+      font-size: 0.96rem;
+      color: #e5e7eb;
+      margin-bottom: 3px;
+    }
+
+    .tech-block ul {
+      list-style: none;
+    }
+
+    .tech-block li {
+      margin-bottom: 2px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .tech-block li::before {
+      content: "‣";
+      color: #38bdf8;
+      font-size: 0.8rem;
+      margin-top: 1px;
+    }
+
+    footer {
+      padding: 18px 20px 32px;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+
+    /* Live Social Proof Pop-up */
+    .social-proof {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      max-width: 300px;
+      z-index: 40;
+      font-size: 0.8rem;
+    }
+
+    .social-proof-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 1);
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .social-proof-inner.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .social-proof-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top left, #22c55e, #14532d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #e5e7eb;
+    }
+
+    .social-proof-body span {
+      display: block;
+      margin-bottom: 2px;
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .social-proof-body p {
+      color: rgba(209, 213, 219, 0.96);
+    }
+
+    .social-proof-time {
+      margin-top: 3px;
+      font-size: 0.7rem;
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .lead-magnet {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .tiers-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .lead-form {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tech-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .social-proof {
+        left: 10px;
+        right: 10px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <!-- Logo SVG -->
-                <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <!-- Texto del Logo -->
-                <div class="flex items-baseline">
-                    <span class="text-2xl font-bold text-gray-800">Mao</span>
-                    <span class="text-2xl font-bold text-blue-600">System</span>
-                    <span class="text-2xl font-bold text-gray-800">WebIA</span>
-                </div>
-            </div>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#tienda" class="text-gray-600 hover:text-blue-600 transition-colors">Soluciones</a></li>
-                    <li><a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contacto</a></li>
-                </ul>
-            </nav>
+<body>
+  <div class="page">
+    <main class="container">
+      <header>
+        <div class="logo">
+          <div class="logo-mark">
+            <span>M</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-text-main">MaoSystem</div>
+            <div class="logo-text-sub">Infraestructura autónoma de ingresos</div>
+          </div>
         </div>
-    </header>
+        <div class="header-cta">
+          <div class="header-cta-pill">
+            <span class="header-cta-dot"></span>
+            <strong>AGENTES DE IA EN PRODUCCIÓN</strong>
+          </div>
+          <span>Prospección · Conversión · Inteligencia de mercado</span>
+        </div>
+      </header>
 
-    <main class="flex-grow">
-        <!-- Nueva sección de Soluciones Digitales -->
-        <section id="tienda" class="py-20 bg-gradient-to-b from-blue-50 to-white">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Su empresa, Startup, MVP, Pymes, Emprendimiento</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">No es solo una tienda: Es un ecosistema autónomo con inteligencia artificial que crece contigo.</p>
-                </div>
-
-                <!-- Botón destacado -->
-                <div class="text-center mb-16">
-                    <a href="#contact" class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white font-bold py-6 px-12 rounded-2xl text-2xl shadow-2xl hover:from-green-700 hover:to-green-600 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
-                        <i class="fas fa-rocket mr-3"></i>
-                        ¡Quiero mi solución personalizada!
-                    </a>
-                </div>
-
-                <!-- Características principales -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-code text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Web Scraping en Python</h3>
-                        <p class="text-gray-600">Creación de micro-SaaS con scraping inteligente para extraer y analizar datos empresariales.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-link text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">APIs Empresariales</h3>
-                        <p class="text-gray-600">Desarrollo de APIs robustas y escalables para conectar sistemas y automatizar procesos.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-rocket text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Startups y MVP</h3>
-                        <p class="text-gray-600">Desarrollo de productos mínimos viables y soluciones para startups y negocios emergentes.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-robot text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Scripts Automatizados</h3>
-                        <p class="text-gray-600">Automatización de procesos empresariales con scripts inteligentes y bots personalizados.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Análisis de Datos</h3>
-                        <p class="text-gray-600">Extracción, procesamiento y análisis de datos para tomar decisiones empresariales inteligentes.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-cogs text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Integración de Sistemas</h3>
-                        <p class="text-gray-600">Conectamos diferentes plataformas y sistemas para optimizar tu flujo de trabajo empresarial.</p>
-                    </div>
-                </div>
-
-                <!-- Demo AsistenteX -->
-                <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 mb-16">
-                    <h3 class="text-3xl font-bold text-white text-center mb-8">Demo AsistenteX</h3>
-                    <p class="text-white/90 text-center mb-8 text-lg">IA que resuelve consultas al instante</p>
-                    
-                    <div class="flex justify-center">
-                        <div id="chat-container" class="bg-white rounded-xl shadow-2xl overflow-hidden">
-                            <div id="chat-header" class="bg-blue-600 text-white p-4 text-center">
-                                <h3 class="text-xl font-bold">AsistenteX</h3>
-                                <p class="text-sm opacity-90">IA que resuelve consultas al instante</p>
-                            </div>
-                            <div id="chat-messages" class="h-80 p-4 overflow-y-auto bg-gray-50">
-                                <div class="message bot-message bg-white border border-gray-200 rounded-lg p-3 mb-3 max-w-xs">
-                                    Hola, soy AsistenteX. ¿En qué puedo ayudarte hoy?
-                                </div>
-                            </div>
-                            <div class="p-4 bg-white border-t border-gray-200">
-                                <div class="flex gap-2">
-                                    <input type="text" id="user-input" placeholder="Escribe tu mensaje..." 
-                                           class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                    <button id="send-btn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                                        Enviar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <style>
-                        .message {
-                            margin-bottom: 10px;
-                            max-width: 80%;
-                        }
-                        .user-message {
-                            background: #e3f2fd;
-                            margin-left: auto;
-                            border-radius: 15px 15px 5px 15px;
-                            padding: 10px 15px;
-                        }
-                        .bot-message {
-                            background: #fff;
-                            border: 1px solid #eee;
-                            border-radius: 15px 15px 15px 5px;
-                            padding: 10px 15px;
-                        }
-                    </style>
-
-                    <script>
-                        const chatData = [
-                            {
-                                user: "¿Cómo reservo una cita para el viernes?",
-                                bot: "Claro, ¿prefieres mañana o tarde? Tengo disponibles 3 PM y 5 PM"
-                            },
-                            {
-                                user: "Dame info sobre tus servicios VIP",
-                                bot: "Aquí tienes un resumen: [Servicios Premium]<br>- Atención 24/7<br>- Descuentos exclusivos<br>- Soporte prioritario"
-                            }
-                        ];
-
-                        let currentInteraction = 0;
-                        const messagesDiv = document.getElementById('chat-messages');
-                        const userInput = document.getElementById('user-input');
-                        const sendBtn = document.getElementById('send-btn');
-
-                        function addMessage(sender, message) {
-                            const messageDiv = document.createElement('div');
-                            messageDiv.className = `message ${sender}-message`;
-                            messageDiv.innerHTML = message;
-                            messagesDiv.appendChild(messageDiv);
-                            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                        }
-
-                        function simulateBotResponse() {
-                            if (currentInteraction < chatData.length) {
-                                setTimeout(() => {
-                                    addMessage('bot', chatData[currentInteraction].bot);
-                                    currentInteraction++;
-                                }, 1000);
-                            } else {
-                                setTimeout(() => {
-                                    addMessage('bot', '¿Necesitas ayuda con algo más?');
-                                }, 1000);
-                            }
-                        }
-
-                        sendBtn.addEventListener('click', () => {
-                            const message = userInput.value;
-                            if (message.trim() === '') return;
-                            
-                            addMessage('user', message);
-                            userInput.value = '';
-                            
-                            setTimeout(simulateBotResponse, 500);
-                        });
-
-                        // Demo automático
-                        setTimeout(() => {
-                            userInput.value = chatData[0].user;
-                            sendBtn.click();
-                            
-                            setTimeout(() => {
-                                userInput.value = chatData[1].user;
-                                sendBtn.click();
-                            }, 3000);
-                        }, 2000);
-                    </script>
-                </div>
-
-                <!-- Testimonios -->
-                <div class="grid md:grid-cols-2 gap-8 mb-16">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-user text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Ana, Boutique Online</h4>
-                                <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 italic">"¡En 2 días ya vendía! El reporte de IA me ayudó a subir ventas un 30%. El panel es súper fácil de usar."</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-user text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Carlos, Tienda de Tecnología</h4>
-                                <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 italic">"La integración con WhatsApp es genial. Los clientes pueden hacer pedidos directamente desde mi catálogo."</p>
-                    </div>
-                </div>
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">
+            <span class="hero-kicker-pill">Sin spam · Solo sistemas</span>
+            <span>Tu IA prospecta, vende y analiza por ti</span>
+          </div>
+          <h1>
+            Automatizamos tu crecimiento con <span class="highlight">agentes de IA 24/7</span>
+          </h1>
+          <p class="hero-subtitle">
+            Dejamos de hacer campañas manuales para construir
+            infraestructura automatizada de ingresos: agentes que
+            <strong>buscan prospectos, personalizan mensajes, cierran citas y analizan precios</strong>
+            mientras tú descansas.
+          </p>
+          <div class="hero-bullets">
+            <div class="hero-chip">
+              <span></span>
+              Lead gen inteligente (Instagram, LinkedIn, TikTok, Google Ads)
             </div>
-        </section>
-
-        <section id="contact" class="py-20 bg-gradient-to-b from-gray-50 to-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Contáctanos</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">¿Tienes alguna pregunta o proyecto en mente? Estamos aquí para ayudarte a alcanzar tus objetivos.</p>
-                <div class="max-w-xl mx-auto">
-                    <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 transform hover:scale-[1.02] transition-all duration-300">
-                        <div class="space-y-6">
-                            <div class="space-y-2">
-                                <label class="block text-sm font-medium text-gray-700">Nombre *</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" placeholder="Tu nombre">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="block text-sm font-medium text-gray-700">Email *</label>
-                                <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" placeholder="tu@email.com">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="block text-sm font-medium text-gray-700">Mensaje *</label>
-                                <textarea rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 transition-colors duration-200 bg-white shadow-sm min-h-[150px] resize-y" placeholder="Escribe tu mensaje aquí..."></textarea>
-                            </div>
-                        </div>
-                        <button class="w-full mt-8 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-500 transition-all duration-300 flex items-center justify-center space-x-3 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            <i class="fas fa-paper-plane text-xl"></i>
-                            <span>Enviar Mensaje</span>
-                        </button>
-                    </div>
-                </div>
+            <div class="hero-chip">
+              <span></span>
+              Asistentes que responden, agendan y venden en WhatsApp
             </div>
-        </section>
+            <div class="hero-chip">
+              <span></span>
+              Dashboards en tiempo real con datos de tu mercado
+            </div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn-primary" id="cta-hero">
+              Agenda una auditoría gratuita de automatización
+            </button>
+            <button class="btn-secondary" id="cta-scroll-services">
+              Ver cómo generamos ingresos en 3 niveles
+            </button>
+          </div>
+          <div class="hero-footnote">
+            <span class="dot"></span>
+            <span>Agentes operando 24/7 · Sin campañas manuales, sin freelancers gestionando Excel.</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="dashboard" aria-label="Dashboard de resultados en tiempo real">
+            <div class="dash-header">
+              <div class="dash-tag">
+                <span class="dash-tag-dot"></span>
+                <span>Live IA Engine · Beta</span>
+              </div>
+              <div class="dash-title">Leads generados por Agente Mao</div>
+            </div>
+            <div class="dash-body">
+              <div class="dash-metric-grid">
+                <div class="metric-card">
+                  <div class="metric-label">Leads calificados este mes</div>
+                  <div class="metric-value" id="metric-leads">0</div>
+                  <div class="metric-pill">
+                    ▲ <span id="metric-leads-growth">+0%</span> vs. mes anterior
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Citas agendadas por IA</div>
+                  <div class="metric-value" id="metric-meetings">0</div>
+                  <div class="metric-pill">
+                    ▲ <span id="metric-meetings-growth">+0%</span> tasa de cierre
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Respuestas automáticas</div>
+                  <div class="metric-value" id="metric-responses">0</div>
+                  <div class="metric-pill danger">
+                    ● <span>Sin riesgo de baneo</span>
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Mercados monitorizados</div>
+                  <div class="metric-value" id="metric-markets">0</div>
+                  <div class="metric-pill">
+                    ● <span>Precios y tendencias 24/7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dash-activity">
+                <div class="activity-row">
+                  <span class="activity-badge">Stream en vivo</span>
+                  <span>Eventos recientes del agente</span>
+                </div>
+                <div class="activity-list" id="activity-list">
+                  <div class="activity-item">
+                    <span class="activity-label">Esperando datos en vivo de tu agente…</span>
+                    <span class="activity-time">ahora</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-footer">
+              <span>
+                <strong>Cómo funciona:</strong>
+                Scraping ético → IA personaliza → Envío humano‑like → Reporte mensual.
+              </span>
+              <span>Listo para vender como suscripción mensual.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="section-title">Tu “tienda” de agentes monetizables</div>
+        <h2 class="section-heading">Escala tu negocio con agentes de IA que trabajan 24/7</h2>
+        <p class="section-subtitle">
+          No vendes “marketing”, vendes
+          <strong>infraestructura autónoma de ingresos</strong>.
+          En lugar de campañas manuales, creas ecosistemas de agentes que:
+          buscan prospectos, detectan oportunidades, personalizan mensajes, generan citas
+          y analizan a tu competencia.
+        </p>
+        <div class="tiers-grid">
+          <article class="tier-card">
+            <p class="tier-label">Nivel 1 · Growth Engine (Crecimiento)</p>
+            <h3 class="tier-title">Prospección inteligente en redes</h3>
+            <div class="tier-pill">
+              <span></span>
+              Instagram · LinkedIn · TikTok · Google Ads
+            </div>
+            <p class="tier-description">
+              Automatizamos la prospección sin spam masivo.
+              Tu agente analiza biografías, cargos y contexto para contactar
+              solo leads calificados con mensajes ultra personalizados.
+            </p>
+            <ul class="tier-list">
+              <li>Scraping ético con herramientas como PhantomBuster / Apify → Google Sheets.</li>
+              <li>IA (GPT‑4/5) detecta “dolores” en bio y cargo (ej: baja velocidad de respuesta).</li>
+              <li>Mensajes cortos de máximo 250 caracteres listos para Instagram / LinkedIn.</li>
+              <li>Envío seguro vía email o herramientas como Waalaxy / ManyChat.</li>
+            </ul>
+            <p class="tier-price">
+              Modelo: <strong>Setup inicial + suscripción mensual por generación de leads.</strong>
+            </p>
+          </article>
+          <article class="tier-card">
+            <p class="tier-label">Nivel 2 · Customer Experience (Retención)</p>
+            <h3 class="tier-title">Asistente IA que responde y vende</h3>
+            <div class="tier-pill">
+              <span></span>
+              AsistenteX en Web + WhatsApp
+            </div>
+            <p class="tier-description">
+              Implementamos un asistente IA que no solo contesta dudas:
+              agenda citas, toma pedidos y califica prospectos automáticamente
+              desde tu sitio o WhatsApp.
+            </p>
+            <ul class="tier-list">
+              <li>Onboarding guiado para entender tus productos, objeciones y procesos.</li>
+              <li>Reserva automática en Calendly o Google Calendar desde la conversación.</li>
+              <li>Integración con tu CRM o Google Sheets para guardar cada interacción.</li>
+              <li>Disponible 24/7 sin costo extra por hora.</li>
+            </ul>
+            <p class="tier-price">
+              Modelo: <strong>Configuración + mensualidad por agente desplegado.</strong>
+            </p>
+          </article>
+          <article class="tier-card">
+            <p class="tier-label">Nivel 3 · Inteligencia de Mercado (Datos)</p>
+            <h3 class="tier-title">Radar de precios y competidores</h3>
+            <div class="tier-pill">
+              <span></span>
+              Reporte mensual de tendencias y precios
+            </div>
+            <p class="tier-description">
+              Tu scraping se convierte en un producto premium:
+              un informe mensual con las tendencias clave, movimientos de precios
+              y nuevas ofertas de tus competidores.
+            </p>
+            <ul class="tier-list">
+              <li>Monitoreo de precios, descuentos y cambios de oferta.</li>
+              <li>Detección de nuevos competidores por sector y ubicación.</li>
+              <li>Alertas de oportunidades y huecos de mercado.</li>
+              <li>Dashboard que alimentamos automáticamente desde tu script de Python.</li>
+            </ul>
+            <p class="tier-price">
+              Modelo: <strong>Suscripción mensual de inteligencia competitiva.</strong>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="lead-magnet" id="auditoria">
+        <div class="lead-card">
+          <div class="lead-badge">
+            <span class="lead-badge-dot"></span>
+            Imán de clientes · Dinero inmediato
+          </div>
+          <h2 class="lead-title">Obtén una Auditoría Gratuita de Automatización para tu Negocio</h2>
+          <p class="lead-text">
+            Te mostramos en 15 minutos cómo se vería tu propio ecosistema de agentes:
+            qué se puede automatizar hoy, qué ingresos puedes desbloquear y
+            cómo integrar IA sin romper tus procesos actuales.
+          </p>
+          <form id="audit-form">
+            <div class="lead-form">
+              <div class="form-field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="¿Cómo te llamas?" required />
+              </div>
+              <div class="form-field">
+                <label for="empresa">Empresa / Proyecto</label>
+                <input id="empresa" name="empresa" type="text" placeholder="Nombre de la empresa" required />
+              </div>
+              <div class="form-field">
+                <label for="sector">Sector</label>
+                <input id="sector" name="sector" type="text" placeholder="Ej. inmobiliaria, e‑commerce, agencia..." required />
+              </div>
+              <div class="form-field">
+                <label for="whatsapp">WhatsApp</label>
+                <input id="whatsapp" name="whatsapp" type="tel" placeholder="Tu número (con indicativo)" required />
+              </div>
+            </div>
+            <div class="form-field" style="margin-top: 6px;">
+              <label for="reto">
+                ¿Qué parte de tu negocio quieres automatizar primero?
+              </label>
+              <textarea id="reto" name="reto" placeholder="Ej. prospección en LinkedIn, respuestas en WhatsApp, seguimiento de leads, etc."></textarea>
+            </div>
+            <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+              <button type="submit" class="btn-primary">
+                Enviar y recibir auditoría por WhatsApp
+              </button>
+              <span style="font-size: 0.8rem; color: rgba(15, 23, 42, 0.95);">
+                Sin spam. Tu solicitud llega directo al agente de Mao por WhatsApp y a tu Google Sheets.
+              </span>
+            </div>
+          </form>
+          <div class="lead-footer">
+            <span class="lead-note">
+              <strong>Resultado:</strong> saldrás con un mapa claro de qué automatizar en los próximos 30 días.
+            </span>
+            <span class="lead-whatsapp">
+              También puedes escribir directo al +57&nbsp;316&nbsp;943&nbsp;8662.
+            </span>
+          </div>
+        </div>
+
+        <aside class="lead-aside">
+          <h3>Así funciona el flujo automatizado con Make</h3>
+          <ul>
+            <li><strong>Módulo 1 — Fuente de datos:</strong> Google Sheets / Airtable (Watch Rows). Se llena con scraping desde PhantomBuster / Apify.</li>
+            <li><strong>Módulo 2 — Cerebro IA:</strong> OpenAI (GPT‑4/5) genera mensajes personalizados usando tu prompt maestro B2B.</li>
+            <li><strong>Módulo 3 — Validación:</strong> Google Sheets (Update Row) guarda el mensaje en <code>Mensaje_Personalizado</code> para revisar los primeros 10.</li>
+            <li><strong>Módulo 4 — Envío:</strong> Gmail (seguro) o Webhook → Waalaxy / ManyChat (avanzado, sin APIs no oficiales).</li>
+            <li><strong>Objetivo final:</strong> Extraer datos → Personalizar con IA → Enviar mensaje → Cobrar como suscripción mensual.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="tech">
+        <div class="section-title">Arquitectura técnica · Backend fuerte · Frontend claro</div>
+        <div class="tech-grid">
+          <div class="tech-block">
+            <h3>Frontend: experiencia limpia y viva</h3>
+            <ul>
+              <li>Landing minimalista centrada en tu promesa: agentes de IA 24/7.</li>
+              <li>Dashboard de cliente donde ve leads, citas y scraping en tiempo real (datos de tu script en Python).</li>
+              <li>Notificaciones “Live Social Proof” simulando actividad constante del agente.</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <h3>Backend: Scraping + IA + Datos</h3>
+            <ul>
+              <li>Script en Python conecta tu scraping (Instagram / LinkedIn / hashtags) con la API de OpenAI.</li>
+              <li>La IA lee bio, cargo y empresa para detectar “dolores” y redactar mensajes personalizados.</li>
+              <li>El script genera un JSON que alimenta tu web y tus dashboards en tiempo real.</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <h3>Monetización tipo SaaS</h3>
+            <ul>
+              <li>Setup inicial + fee mensual por generación de leads (Growth Engine).</li>
+              <li>Configuración + mensualidad por agente de atención (Customer Experience).</li>
+              <li>Suscripción mensual por reportes de inteligencia competitiva (Inteligencia de Mercado).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div class="flex items-center space-x-3">
-                    <i class="fas fa-envelope text-blue-400"></i>
-                    <a href="mailto:maosystem1@gmail.com" class="hover:text-blue-400 transition-colors">maosystem1@gmail.com</a>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <i class="fas fa-phone text-blue-400"></i>
-                    <a href="tel:+573169438662" class="hover:text-blue-400 transition-colors">+57 316 943 8662</a>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <i class="fab fa-github text-blue-400"></i>
-                    <a href="https://github.com/maoSystemWebIA" target="_blank" class="hover:text-blue-400 transition-colors">GitHub</a>
-                </div>
-            </div>
-            <div class="text-center text-gray-400">
-                <p>&copy; 2025 MaoSystemWebIA. Todos los derechos reservados.</p>
-            </div>
+    <footer>
+      <div class="footer-inner">
+        <span>© <span id="year"></span> MaoSystem · Agentes de IA 24/7.</span>
+        <div class="footer-links">
+          <a href="#services">Modelo de 3 niveles</a>
+          <a href="#auditoria">Auditoría gratuita</a>
+          <a href="manual_landing_maosystem.html" target="_blank" rel="noopener noreferrer">
+            Manual PDF paso a paso
+          </a>
         </div>
+      </div>
     </footer>
 
-    <script>
-        // Smooth scrolling para los enlaces del menú
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Live Social Proof -->
+    <div class="social-proof" aria-live="polite" aria-atomic="true">
+      <div class="social-proof-inner" id="social-proof-inner">
+        <div class="social-proof-avatar">IA</div>
+        <div class="social-proof-body">
+          <span>Agente Mao en acción</span>
+          <p id="social-proof-message">
+            Agente Mao acaba de generar 5 leads para una inmobiliaria en Bogotá…
+          </p>
+          <div class="social-proof-time" id="social-proof-time">hace segundos</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        // Formulario de contacto (ejemplo básico)
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-        });
-    </script>
+  <script>
+    // Año dinámico en el footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll suave a sección de servicios
+    const scrollServices = document.getElementById("cta-scroll-services");
+    if (scrollServices) {
+      scrollServices.addEventListener("click", () => {
+        const target = document.getElementById("services");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
+
+    // CTA principal → enfocar formulario de auditoría
+    const ctaHero = document.getElementById("cta-hero");
+    if (ctaHero) {
+      ctaHero.addEventListener("click", () => {
+        const target = document.getElementById("auditoria");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        const nombreInput = document.getElementById("nombre");
+        if (nombreInput) {
+          setTimeout(() => nombreInput.focus(), 500);
+        }
+      });
+    }
+
+    // Lead magnet: enviar datos al WhatsApp de Mao + webhook (Make)
+    const auditForm = document.getElementById("audit-form");
+    if (auditForm) {
+      auditForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const formData = new FormData(auditForm);
+        const nombre = formData.get("nombre") || "";
+        const empresa = formData.get("empresa") || "";
+        const sector = formData.get("sector") || "";
+        const whatsapp = formData.get("whatsapp") || "";
+        const reto = formData.get("reto") || "";
+
+        const texto = `Hola Mao, soy ${nombre} de ${empresa}. Sector: ${sector}. Mi WhatsApp: ${whatsapp}. Quiero una auditoría de automatización. Reto principal: ${reto}`;
+        const encodedText = encodeURIComponent(texto);
+
+        // Enviar a WhatsApp de Mao
+        const maoPhone = "573169438662"; // +57 316 943 8662
+        const waUrl = `https://wa.me/${maoPhone}?text=${encodedText}`;
+        window.open(waUrl, "_blank");
+
+        // Enviar a Make.com (Google Sheets + flujo IA) vía Webhook
+        const payload = {
+          nombre,
+          empresa,
+          sector,
+          whatsapp,
+          reto,
+          origen: "Landing MaoSystem",
+          timestamp: new Date().toISOString()
+        };
+
+        // Reemplaza esta URL con tu Webhook de Make
+        const makeWebhookUrl = "https://hook.make.com/TU_WEBHOOK_AQUI";
+
+        try {
+          await fetch(makeWebhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+        } catch (error) {
+          console.error("Error al enviar datos a Make:", error);
+        }
+      });
+    }
+
+    // Live Social Proof: mensajes rotativos
+    const socialMessages = [
+      "Agente Mao acaba de generar 5 leads para una inmobiliaria en Bogotá.",
+      "Scraping completado: 1.200 prospectos encontrados para un e‑commerce de moda.",
+      "Nueva campaña lanzada: agentes prospectando CEOs de startups en LinkedIn.",
+      "Reporte mensual listo: actualización de precios para 32 competidores en el sector legal.",
+      "Asistente IA agendó 3 citas en Calendly para una agencia de marketing en menos de 2 horas."
+    ];
+
+    const socialTimes = [
+      "hace 12 segundos",
+      "hace 1 minuto",
+      "hace 3 minutos",
+      "hace 5 minutos",
+      "hace 8 minutos"
+    ];
+
+    const socialProofInner = document.getElementById("social-proof-inner");
+    const socialProofMessage = document.getElementById("social-proof-message");
+    const socialProofTime = document.getElementById("social-proof-time");
+
+    let currentSocialIndex = 0;
+
+    function showNextSocialProof() {
+      if (!socialProofInner || !socialProofMessage || !socialProofTime) return;
+      currentSocialIndex = (currentSocialIndex + 1) % socialMessages.length;
+      socialProofMessage.textContent = socialMessages[currentSocialIndex];
+      socialProofTime.textContent = socialTimes[currentSocialIndex];
+      socialProofInner.classList.add("visible");
+
+      setTimeout(() => {
+        socialProofInner.classList.remove("visible");
+      }, 4300);
+    }
+
+    setTimeout(showNextSocialProof, 1200);
+    setInterval(showNextSocialProof, 9000);
+
+    // Dashboard: intentar leer datos reales desde un JSON generado por el script en Python.
+    async function loadLiveDashboard() {
+      try {
+        // Ajusta la ruta según dónde guardes el JSON desde Python
+        const response = await fetch("social_feed.json", { cache: "no-store" });
+        if (!response.ok) return;
+        const data = await response.json();
+
+        if (data.summary) {
+          if (typeof data.summary.leads_qualified === "number") {
+            document.getElementById("metric-leads").textContent = data.summary.leads_qualified.toLocaleString("es-CO");
+          }
+          if (typeof data.summary.meetings_booked === "number") {
+            document.getElementById("metric-meetings").textContent = data.summary.meetings_booked.toLocaleString("es-CO");
+          }
+          if (typeof data.summary.auto_responses === "number") {
+            document.getElementById("metric-responses").textContent = data.summary.auto_responses.toLocaleString("es-CO");
+          }
+          if (typeof data.summary.markets_tracked === "number") {
+            document.getElementById("metric-markets").textContent = data.summary.markets_tracked.toLocaleString("es-CO");
+          }
+          if (typeof data.summary.leads_growth === "number") {
+            document.getElementById("metric-leads-growth").textContent = `${data.summary.leads_growth > 0 ? "+" : ""}${data.summary.leads_growth}%`;
+          }
+          if (typeof data.summary.meetings_growth === "number") {
+            document.getElementById("metric-meetings-growth").textContent = `${data.summary.meetings_growth > 0 ? "+" : ""}${data.summary.meetings_growth}%`;
+          }
+        }
+
+        if (Array.isArray(data.events) && data.events.length > 0) {
+          const list = document.getElementById("activity-list");
+          if (list) {
+            list.innerHTML = "";
+            data.events.slice(0, 5).forEach((event) => {
+              const wrapper = document.createElement("div");
+              wrapper.className = "activity-item";
+
+              const label = document.createElement("span");
+              label.className = "activity-label";
+              label.textContent = event.message || "";
+
+              const time = document.createElement("span");
+              time.className = "activity-time";
+              time.textContent = event.time_ago || "";
+
+              wrapper.appendChild(label);
+              wrapper.appendChild(time);
+              list.appendChild(wrapper);
+            });
+          }
+        }
+      } catch (error) {
+        console.error("No se pudo cargar el dashboard en vivo:", error);
+      }
+    }
+
+    loadLiveDashboard();
+    setInterval(loadLiveDashboard, 15000);
+  </script>
 </body>
-</html> 
+</html>

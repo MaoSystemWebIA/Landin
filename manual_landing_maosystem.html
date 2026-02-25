@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manual paso a paso · Landing MaoSystem</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 32px auto;
+      max-width: 760px;
+      line-height: 1.6;
+      color: #111827;
+    }
+    h1, h2, h3 {
+      color: #0f172a;
+    }
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 1.8rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1.2rem;
+    }
+    p {
+      margin: 0.4rem 0;
+    }
+    ul, ol {
+      margin: 0.3rem 0 0.6rem 1.2rem;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: #f3f4f6;
+      padding: 0 0.22rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    .box {
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      margin: 0.8rem 0;
+    }
+    .small {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .strong {
+      font-weight: 600;
+    }
+    .steps > li {
+      margin-bottom: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manual paso a paso · Landing “Agentes de IA 24/7”</h1>
+  <p class="small">
+    Este documento resume, de forma imprimible, cómo se construyó la landing de MaoSystem,
+    cómo se conecta con el backend en Python y con Make.com para generar ingresos con agentes de IA.
+  </p>
+
+  <div class="box small">
+    <p><span class="strong">Cómo usar este manual como PDF</span></p>
+    <ol>
+      <li>Abre esta página desde la landing (enlace “Manual PDF paso a paso”).</li>
+      <li>En tu navegador, usa <span class="strong">Imprimir → Guardar como PDF</span>.</li>
+      <li>Obtendrás un PDF físico descargable para compartir o imprimir.</li>
+    </ol>
+  </div>
+
+  <h2>1. Concepto y mensaje principal</h2>
+  <ul class="steps">
+    <li><span class="strong">Objetivo del sitio:</span> vender <span class="strong">infraestructura autónoma de ingresos</span>, no “marketing suelto”.</li>
+    <li><span class="strong">Promesa central (H1):</span> “Automatizamos tu crecimiento con agentes de IA 24/7”.</li>
+    <li><span class="strong">Subtítulo:</span> dejamos de hacer spam para construir sistemas de IA que prospectan, venden y analizan a la competencia por ti.</li>
+    <li><span class="strong">CTA principal:</span> “Agenda una auditoría gratuita de automatización”.</li>
+  </ul>
+
+  <h2>2. Estructura de la landing (frontend)</h2>
+  <h3>2.1. Secciones principales</h3>
+  <ol class="steps">
+    <li><span class="strong">Header:</span> logo “MaoSystem” + claim “Infraestructura autónoma de ingresos”.</li>
+    <li><span class="strong">Hero:</span> H1, subtítulo, bullets de valor y botones:
+      <ul>
+        <li>CTA 1: ir al formulario de auditoría.</li>
+        <li>CTA 2: hacer scroll a la sección “Modelo de 3 niveles”.</li>
+      </ul>
+    </li>
+    <li><span class="strong">Dashboard simulado:</span> muestra leads generados, citas, respuestas automáticas y mercados monitorizados, alimentado con <code>social_feed.json</code>.</li>
+    <li><span class="strong">Sección de servicios (3 niveles):</span>
+      <ul>
+        <li>Nivel 1: Growth Engine (prospectar en Instagram, LinkedIn, TikTok, Google Ads).</li>
+        <li>Nivel 2: Customer Experience (AsistenteX en web y WhatsApp).</li>
+        <li>Nivel 3: Inteligencia de Mercado (reporte mensual de scraping y precios).</li>
+      </ul>
+    </li>
+    <li><span class="strong">Lead magnet / Auditoría gratuita:</span> formulario conectado a WhatsApp y a Make.com.</li>
+    <li><span class="strong">Sección técnica:</span> explica frontend, backend y modelo de negocio tipo SaaS.</li>
+    <li><span class="strong">Footer:</span> enlaces a modelo 3 niveles, auditoría y este manual.</li>
+  </ol>
+
+  <h3>2.2. Estilo visual</h3>
+  <ul class="steps">
+    <li>Se usó un diseño tipo <span class="strong">SaaS dark mode</span>: fondos oscuros, acentos en celeste/violeta/naranja.</li>
+    <li>Componentes clave: tarjetas, chips, badges, layout responsive en 2 columnas para desktop y 1 columna para móvil.</li>
+    <li>Todo el CSS está incluido en <code>index.html</code> dentro de una etiqueta <code>&lt;style&gt;</code> para mantener el proyecto simple.</li>
+  </ul>
+
+  <h2>3. Lead magnet conectado a WhatsApp y Make.com</h2>
+  <h3>3.1. Diseño del formulario</h3>
+  <p>El formulario de auditoría se definió en <code>index.html</code> con los campos:</p>
+  <ul>
+    <li><code>nombre</code></li>
+    <li><code>empresa</code></li>
+    <li><code>sector</code></li>
+    <li><code>whatsapp</code></li>
+    <li><code>reto</code> (texto libre sobre qué automatizar primero)</li>
+  </ul>
+
+  <h3>3.2. Lógica de envío</h3>
+  <ol class="steps">
+    <li>Se capturan los datos con <code>FormData</code> en el script de la landing.</li>
+    <li>Se arma un texto como:
+      <br />
+      <code>Hola Mao, soy [Nombre] de [Empresa]... Reto principal: [Reto]</code>.
+    </li>
+    <li>Se abre una pestaña de WhatsApp con <code>https://wa.me/573169438662?text=...</code> para que el lead llegue directo a tu móvil.</li>
+    <li>En paralelo, se envía un <span class="strong">POST JSON</span> a un Webhook de Make.com con los mismos datos para:
+      <ul>
+        <li>Guardar al lead en Google Sheets o Airtable.</li>
+        <li>Desencadenar el flujo IA (mensaje personalizado, email o campaña en Waalaxy/ManyChat).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>4. Script en Python que alimenta la web</h2>
+  <h3>4.1. Archivo principal</h3>
+  <p>Se creó el archivo <code>social_feed_generator.py</code> con estos objetivos:</p>
+  <ul>
+    <li>Leer un CSV de prospectos (<code>prospects.csv</code>).</li>
+    <li>Generar mensajes personalizados con OpenAI (si hay API key disponible).</li>
+    <li>Construir métricas agregadas y eventos tipo “Live Social Proof”.</li>
+    <li>Escribir todo en un JSON llamado <code>social_feed.json</code>, que la landing lee.</li>
+  </ul>
+
+  <h3>4.2. Flujo interno del script</h3>
+  <ol class="steps">
+    <li><span class="strong">Carga de prospectos:</span>
+      <ul>
+        <li>Lee <code>prospects.csv</code> usando <code>csv.DictReader</code>.</li>
+        <li>Limitado por <code>MAX_PROSPECTS</code> (por defecto 30).</li>
+      </ul>
+    </li>
+    <li><span class="strong">Cliente OpenAI (opcional):</span>
+      <ul>
+        <li>Intenta crear un cliente con <code>OPENAI_API_KEY</code>.</li>
+        <li>Si no existe API key o el paquete <code>openai</code>, hace fallback a mensajes genéricos.</li>
+      </ul>
+    </li>
+    <li><span class="strong">Prompt maestro:</span> se usa el prompt B2B que especifica:
+      <ul>
+        <li>Nombre, cargo, empresa y bio del prospecto.</li>
+        <li>Mensaje corto, no robótico, sin “Espero que estés bien”.</li>
+        <li>Enfocado en ofrecer automatización con IA y cerrando con pregunta.</li>
+      </ul>
+    </li>
+    <li><span class="strong">Resumen y eventos:</span>
+      <ul>
+        <li>Cálculo de <code>leads_qualified</code>, <code>meetings_booked</code>, <code>auto_responses</code>, <code>markets_tracked</code>.</li>
+        <li>Creación de eventos de texto tipo:
+          <br />
+          “Agente Mao acaba de generar X leads para una inmobiliaria en Bogotá…”
+        </li>
+      </ul>
+    </li>
+    <li><span class="strong">Salida:</span>
+      <ul>
+        <li>Se escribe <code>social_feed.json</code> con claves <code>summary</code>, <code>events</code> y <code>prospects</code>.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>4.3. Conexión con la landing</h3>
+  <ol class="steps">
+    <li>En <code>index.html</code>, una función <code>loadLiveDashboard()</code> hace:
+      <ul>
+        <li><code>fetch("social_feed.json")</code> sin caché.</li>
+        <li>Si el archivo existe, actualiza:
+          <ul>
+            <li>Los números del dashboard (leads, citas, respuestas, mercados).</li>
+            <li>La lista de eventos recientes.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>La función se llama al cargar la página y también cada 15 segundos para simular tiempo real.</li>
+  </ol>
+
+  <h2>5. Escenario tipo en Make.com</h2>
+  <p>El manual no contiene tu escenario exacto, pero sí la estructura recomendada:</p>
+  <ol class="steps">
+    <li><span class="strong">Módulo 1 – Fuente de datos:</span>
+      <ul>
+        <li>Trigger: <span class="strong">Google Sheets / Airtable → Watch Rows</span>.</li>
+        <li>La tabla se llena con scraping de LinkedIn/Instagram vía PhantomBuster o Apify.</li>
+      </ul>
+    </li>
+    <li><span class="strong">Módulo 2 – Cerebro IA:</span>
+      <ul>
+        <li>OpenAI → “Create completion / Chat completion” con el prompt maestro B2B.</li>
+      </ul>
+    </li>
+    <li><span class="strong">Módulo 3 – Validación:</span>
+      <ul>
+        <li>Google Sheets → <span class="strong">Update Row</span> en columna <code>Mensaje_Personalizado</code>.</li>
+        <li>Revisas los primeros 10 manualmente antes de automatizar el envío.</li>
+      </ul>
+    </li>
+    <li><span class="strong">Módulo 4 – Envío:</span>
+      <ul>
+        <li>Opción segura: módulo Gmail → Send Email con el mensaje de IA.</li>
+        <li>Opción avanzada: Webhook → Waalaxy (LinkedIn) o ManyChat (Instagram).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>6. Publicación y GitHub</h2>
+  <ol class="steps">
+    <li>Se modificó <code>index.html</code> para incluir:
+      <ul>
+        <li>Nuevo diseño de landing con hero, servicios, lead magnet y dashboard.</li>
+        <li>Botón de auditoría conectado a formulario y scroll suave.</li>
+        <li>Enlace en el footer al manual: <code>manual_landing_maosystem.html</code>.</li>
+      </ul>
+    </li>
+    <li>Se añadió el archivo <code>social_feed_generator.py</code> al repositorio.</li>
+    <li>Se creó este manual en <code>manual_landing_maosystem.html</code> como versión imprimible (PDF via navegador).</li>
+    <li>Se planificó actualizar GitHub con:
+      <ul>
+        <li><code>git add index.html social_feed_generator.py manual_landing_maosystem.html</code></li>
+        <li><code>git commit -m "Landing MaoSystem + backend IA y manual"</code></li>
+        <li><code>git push</code> hacia el repositorio remoto.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>7. Cómo replicar este sistema para otro cliente</h2>
+  <ul class="steps">
+    <li>Clona la estructura de archivos (<code>index.html</code>, <code>social_feed_generator.py</code>, este manual).</li>
+    <li>Cambia el branding (logo, textos, colores) en el hero y en la sección de servicios.</li>
+    <li>Ajusta el prompt maestro en el script de Python a la industria del nuevo cliente.</li>
+    <li>Conecta un nuevo Webhook de Make y una nueva hoja de Google específica para ese cliente.</li>
+    <li>Vende el paquete como:
+      <ul>
+        <li>Setup inicial (diseño + conexión de agentes).</li>
+        <li>Fee mensual por leads, por agente o por reporte de inteligencia.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p class="small">
+    Con este manual tienes un mapa claro de cómo se construyó la landing, cómo se integró
+    con Python y con Make, y cómo replicar el sistema para otros negocios cobrando
+    suscripciones mensuales.
+  </p>
+</body>
+</html>
+
