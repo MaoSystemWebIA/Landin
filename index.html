@@ -516,6 +516,16 @@
       margin-bottom: 8px;
     }
 
+    .tier-image {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      margin-bottom: 8px;
+      display: block;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+      object-fit: cover;
+    }
+
     .tier-list {
       list-style: none;
       margin-bottom: 10px;
@@ -1007,67 +1017,43 @@
           <article class="tier-card">
             <p class="tier-label">Nivel 1 · Growth Engine (Crecimiento)</p>
             <h3 class="tier-title">Prospección inteligente en redes</h3>
-            <div class="tier-pill">
-              <span></span>
-              Instagram · LinkedIn · TikTok · Google Ads
-            </div>
+            <img
+              class="tier-image"
+              src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Panel de redes sociales con mensajes y leads entrando automáticamente"
+              loading="lazy"
+            />
             <p class="tier-description">
-              Automatizamos la prospección sin spam masivo.
-              Tu agente analiza biografías, cargos y contexto para contactar
-              solo leads calificados con mensajes ultra personalizados.
-            </p>
-            <ul class="tier-list">
-              <li>Scraping ético con herramientas como PhantomBuster / Apify → Google Sheets.</li>
-              <li>IA (GPT‑4/5) detecta “dolores” en bio y cargo (ej: baja velocidad de respuesta).</li>
-              <li>Mensajes cortos de máximo 250 caracteres listos para Instagram / LinkedIn.</li>
-              <li>Envío seguro vía email o herramientas como Waalaxy / ManyChat.</li>
-            </ul>
-            <p class="tier-price">
-              Modelo: <strong>Setup inicial + suscripción mensual por generación de leads.</strong>
+              Representa tus agentes buscando clientes en Instagram, LinkedIn, TikTok y Google Ads
+              mientras llegan nuevos mensajes y notificaciones de leads calificados.
             </p>
           </article>
           <article class="tier-card">
             <p class="tier-label">Nivel 2 · Customer Experience (Retención)</p>
             <h3 class="tier-title">Asistente IA que responde y vende</h3>
-            <div class="tier-pill">
-              <span></span>
-              AsistenteX en Web + WhatsApp
-            </div>
+            <img
+              class="tier-image"
+              src="https://images.pexels.com/photos/1181637/pexels-photo-1181637.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Persona usando chat en computador con burbujas de conversación"
+              loading="lazy"
+            />
             <p class="tier-description">
-              Implementamos un asistente IA que no solo contesta dudas:
-              agenda citas, toma pedidos y califica prospectos automáticamente
-              desde tu sitio o WhatsApp.
-            </p>
-            <ul class="tier-list">
-              <li>Onboarding guiado para entender tus productos, objeciones y procesos.</li>
-              <li>Reserva automática en Calendly o Google Calendar desde la conversación.</li>
-              <li>Integración con tu CRM o Google Sheets para guardar cada interacción.</li>
-              <li>Disponible 24/7 sin costo extra por hora.</li>
-            </ul>
-            <p class="tier-price">
-              Modelo: <strong>Configuración + mensualidad por agente desplegado.</strong>
+              Muestra la idea de un asistente virtual atendiendo chats y conversaciones en tu web
+              o WhatsApp, respondiendo y cerrando ventas de forma automática.
             </p>
           </article>
           <article class="tier-card">
             <p class="tier-label">Nivel 3 · Inteligencia de Mercado (Datos)</p>
             <h3 class="tier-title">Radar de precios y competidores</h3>
-            <div class="tier-pill">
-              <span></span>
-              Reporte mensual de tendencias y precios
-            </div>
+            <img
+              class="tier-image"
+              src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Gráficas financieras y comparativas de mercado en una pantalla"
+              loading="lazy"
+            />
             <p class="tier-description">
-              Tu scraping se convierte en un producto premium:
-              un informe mensual con las tendencias clave, movimientos de precios
-              y nuevas ofertas de tus competidores.
-            </p>
-            <ul class="tier-list">
-              <li>Monitoreo de precios, descuentos y cambios de oferta.</li>
-              <li>Detección de nuevos competidores por sector y ubicación.</li>
-              <li>Alertas de oportunidades y huecos de mercado.</li>
-              <li>Dashboard que alimentamos automáticamente desde tu script de Python.</li>
-            </ul>
-            <p class="tier-price">
-              Modelo: <strong>Suscripción mensual de inteligencia competitiva.</strong>
+              Refuerza el concepto de un radar de precios y competidores que analiza tendencias
+              y oportunidades en tu sector en tiempo real.
             </p>
           </article>
         </div>
@@ -1141,35 +1127,6 @@
         </aside>
       </section>
 
-      <section class="tech">
-        <div class="section-title">Arquitectura técnica · Backend fuerte · Frontend claro</div>
-        <div class="tech-grid">
-          <div class="tech-block">
-            <h3>Frontend: experiencia limpia y viva</h3>
-            <ul>
-              <li>Landing minimalista centrada en tu promesa: agentes de IA 24/7.</li>
-              <li>Dashboard de cliente donde ve leads, citas y scraping en tiempo real (datos de tu script en Python).</li>
-              <li>Notificaciones “Live Social Proof” simulando actividad constante del agente.</li>
-            </ul>
-          </div>
-          <div class="tech-block">
-            <h3>Backend: Scraping + IA + Datos</h3>
-            <ul>
-              <li>Script en Python conecta tu scraping (Instagram / LinkedIn / hashtags) con la API de OpenAI.</li>
-              <li>La IA lee bio, cargo y empresa para detectar “dolores” y redactar mensajes personalizados.</li>
-              <li>El script genera un JSON que alimenta tu web y tus dashboards en tiempo real.</li>
-            </ul>
-          </div>
-          <div class="tech-block">
-            <h3>Monetización tipo SaaS</h3>
-            <ul>
-              <li>Setup inicial + fee mensual por generación de leads (Growth Engine).</li>
-              <li>Configuración + mensualidad por agente de atención (Customer Experience).</li>
-              <li>Suscripción mensual por reportes de inteligencia competitiva (Inteligencia de Mercado).</li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer>
