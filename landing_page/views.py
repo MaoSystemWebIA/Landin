@@ -9,10 +9,10 @@ def landing_page(request):
             contacto = form.save()
             # Enviar correo automático
             send_mail(
-                'Nuevo contacto desde MaoSistemWebIA',
-                f'Nombre: {contacto.nombre}\nEmail: {contacto.email}\nServicio: {contacto.servicio}\nRequiere: {contacto.requiere}\nTecnología: {contacto.tecnologia_cliente}\nMensaje: {contacto.mensaje}',
-                'maosytem1@gmail.com',
-                ['maosytem1@gmail.com'],
+                'Nuevo contacto desde MaoSystemWebIA',
+                f'Nombre: {contacto.nombre}\nEmail: {contacto.email}\nServicio: {contacto.servicio}\nRequiere IA: {contacto.requiere}\nTecnología: {contacto.tecnologia_cliente}\nMensaje: {contacto.mensaje}',
+                'maosystem1@gmail.com',
+                ['maosystem1@gmail.com'],
                 fail_silently=False,
             )
             return render(request, 'landing_page/gracias.html')
